@@ -31,16 +31,17 @@
     </div>
 
 
+    {% for tarefa in tarefas %}
     <div class="row item">
         <div class="col-sm-10">
-            <span><a class="link" href="">Limpar a Casa</a></span>
+            <span><a class="link" href="/tarefa/{{tarefa.id}}">{{tarefa.titulo}}</a></span>
         </div>
         <div class="col-sm-2 icones">
             <a href=""><span><i class="fa fa-edit"></i></span></a>
             <a href="" class="delete-btn"><span><i class="fa fa-trash"></i></span></a>
         </div>
     </div>
-
+    {% endfor%}
 
 
 </div>
