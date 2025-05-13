@@ -21,13 +21,24 @@
                 </button>
                 <div class="collapse navbar-collapse" id="mynavbar">
                     <ul class="navbar-nav me-auto">
+                    {% if user.is_authenticated  %}   
                         <li class="nav-item">
-                            <a class="nav-link" href="javascript:void(0)">Tarefas</a>
+                            <a class="nav-link" href="/">Tarefas</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="javascript:void(0)">Sair</a>
+                    {% else %}
+                      <li class="nav-item">
+                            <a class="nav-link" href="/accounts/login">Entrar</a>
                         </li>
+                     {% endif %}
 
+                    {% if user.is_authenticated  %}   
+                        <li class="nav-item">
+                            <form action="{% url 'logout' %}" method="post">
+                                {% csrf_token%}
+                                <button class="nav-link active" type="submit">Sair</button>
+                            </form>   
+                        </li>
+                    {% endif %}
                     </ul>
 
                 </div>
